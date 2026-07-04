@@ -6,6 +6,20 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  /* ---- theme toggle ---- */
+  var themeBtn = document.getElementById('themeToggle');
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var light = document.documentElement.getAttribute('data-theme') === 'light';
+      var next = light ? 'dark' : 'light';
+      if (next === 'dark') document.documentElement.removeAttribute('data-theme');
+      else document.documentElement.setAttribute('data-theme', 'light');
+      if (meta) meta.setAttribute('content', next === 'light' ? '#f7f9fc' : '#070810');
+      try { localStorage.setItem('elumi-theme', next); } catch (e) {}
+    });
+  }
+
   /* ---- nav shrink ---- */
   var nav = document.getElementById('nav');
   var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 24); };
