@@ -11,10 +11,9 @@
   var meta = document.querySelector('meta[name="theme-color"]');
   if (themeBtn) {
     themeBtn.addEventListener('click', function () {
-      var light = document.documentElement.getAttribute('data-theme') === 'light';
+      var light = document.documentElement.getAttribute('data-theme') !== 'dark';
       var next = light ? 'dark' : 'light';
-      if (next === 'dark') document.documentElement.removeAttribute('data-theme');
-      else document.documentElement.setAttribute('data-theme', 'light');
+      document.documentElement.setAttribute('data-theme', next);
       if (meta) meta.setAttribute('content', next === 'light' ? '#f7f9fc' : '#070810');
       try { localStorage.setItem('elumi-theme', next); } catch (e) {}
     });

@@ -319,12 +319,13 @@ h2{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-height:
 /* ============ RESPONSIVE ============ */
 @media (max-width:980px){
   .nav-links{display:none}
-  .hero{grid-template-columns:1fr;min-height:auto;padding-top:6rem;text-align:left}
-  .hero-art{order:-1;min-height:220px;margin-bottom:.5rem}
-  .lolo-float{width:min(52%,210px)}
-  .halo{width:80%}
-  .orbit{width:min(70%,260px)}
-  .hero-title{font-size:clamp(2.6rem,10vw,4rem)}
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:6.5rem;text-align:left}
+  .hero-art{min-height:auto;margin:1.6rem 0 .5rem}
+  .lolo-float{width:min(60%,220px)}
+  .halo{width:66%}
+  .orbit,.spark{display:none}
+  .hero-title{font-size:clamp(2.5rem,9vw,3.6rem)}
+  .hero-sub,.lede{font-size:1rem}
   .cards{grid-template-columns:repeat(2,1fr)}
   .flag-grid{grid-template-columns:1fr}
   .flag-art{min-height:auto;order:-1;display:flex;justify-content:center;padding:1rem 0 .5rem}
@@ -338,11 +339,16 @@ h2{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-height:
 }
 @media (max-width:560px){
   .cards,.foot-cols{grid-template-columns:1fr}
+  .cards{gap:1.9rem}
   .timeline{grid-template-columns:1fr}
   .hero-cta{flex-direction:column;align-items:stretch}
   .hero-cta .btn{justify-content:center}
   .foot-bottom{flex-direction:column}
-  .badges img{width:64px}
+  .badges img{width:60px}
+  .invest-lolo{width:112px;right:-12px;bottom:-12px;opacity:.5}
+  .invest-card{padding-left:1.3rem;padding-right:1.3rem}
+  .nav{padding-left:1rem;padding-right:1rem}
+  .nav-cta{padding:.55em .9em}
 }
 
 /* ============ MOTION SAFETY ============ */
