@@ -20,6 +20,8 @@
   --grain-op:.045;
   --grain-blend:overlay;
   --aurora-op:1;
+  --halo-bg:radial-gradient(circle,rgba(94,211,209,.30),rgba(139,124,246,.15) 45%,transparent 68%);
+  --shot-halo:radial-gradient(closest-side,rgba(94,211,209,.12),transparent 78%);
   --mascot-shadow:0 30px 50px rgba(0,0,0,.5);
   --shot-shadow:0 34px 60px rgba(0,0,0,.55);
   --radius:22px;
@@ -46,9 +48,11 @@
   --badge-bd:rgba(18,28,52,.1);
   --grain-op:.03;
   --grain-blend:multiply;
-  --aurora-op:.55;
-  --mascot-shadow:0 26px 44px rgba(60,90,130,.28);
-  --shot-shadow:0 26px 50px rgba(60,90,130,.26);
+  --aurora-op:.30;
+  --halo-bg:radial-gradient(circle,rgba(255,255,255,.96),rgba(228,244,243,.55) 42%,transparent 72%);
+  --shot-halo:radial-gradient(closest-side,rgba(255,255,255,.9),rgba(255,255,255,0) 80%);
+  --mascot-shadow:0 22px 40px rgba(120,140,175,.22);
+  --shot-shadow:0 22px 44px rgba(120,140,175,.2);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -186,7 +190,7 @@ a{color:inherit;text-decoration:none}
 .hero-art{position:relative;display:flex;align-items:center;justify-content:center;min-height:420px}
 .halo{
   position:absolute;width:120%;aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle,rgba(94,211,209,.28),rgba(139,124,246,.14) 45%,transparent 68%);
+  background:var(--halo-bg);
   filter:blur(10px);animation:pulseOrb 6s ease-in-out infinite;
 }
 .lolo-float{position:relative;width:min(92%,460px);filter:drop-shadow(var(--mascot-shadow));animation:bob 5.5s var(--ease) infinite;will-change:transform}
@@ -249,12 +253,13 @@ h2{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-height:
 .feat-list li{display:flex;align-items:flex-start;gap:.75rem;color:var(--ink);font-size:1rem}
 .tick{flex:none;width:22px;height:22px;border-radius:50%;background:rgba(94,211,209,.15);color:var(--turq);display:grid;place-items:center;font-size:.72rem;font-weight:700;border:1px solid rgba(94,211,209,.3)}
 .heylolo-word{color:var(--turq)}
-.badges{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;margin:1.8rem 0 2.2rem}
-.badges img{width:76px;height:auto;border-radius:14px;background:var(--badge-bg);border:1px solid var(--badge-bd);padding:6px;transition:transform .3s var(--ease)}
-.badges img:hover{transform:translateY(-4px) scale(1.05)}
+.badges{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin:1.8rem 0 2.2rem}
+.badges img{width:84px;height:auto;transition:transform .3s var(--ease);filter:drop-shadow(0 6px 12px rgba(120,140,175,.18))}
+.badges img:hover{transform:translateY(-4px) scale(1.06)}
 
 .flag-art{position:relative;min-height:520px}
-.para{will-change:transform}
+.flag-art::before{content:"";position:absolute;left:50%;top:50%;width:118%;height:96%;transform:translate(-50%,-50%);background:var(--shot-halo);filter:blur(24px);pointer-events:none;z-index:0}
+.para{will-change:transform;position:relative;z-index:1}
 .shot-wrap-back,.shot-wrap-front{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 .shot{width:min(62%,300px);filter:drop-shadow(var(--shot-shadow))}
 .shot-back{transform:translate(28%,-6%) rotate(6deg);opacity:.92}
@@ -321,7 +326,8 @@ h2{font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-height:
   .nav-links{display:none}
   .hero{grid-template-columns:1fr;min-height:auto;padding-top:6.5rem;text-align:left}
   .hero-art{min-height:auto;margin:1.6rem 0 .5rem}
-  .lolo-float{width:min(60%,220px)}
+  .hero-art .para{width:100%;display:flex;justify-content:center}
+  .lolo-float{width:min(60%,220px);margin:0 auto}
   .halo{width:66%}
   .orbit,.spark{display:none}
   .hero-title{font-size:clamp(2.5rem,9vw,3.6rem)}
