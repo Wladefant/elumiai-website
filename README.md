@@ -22,6 +22,18 @@ docker run -p 8080:80 elumiai-website
 
 On Dokploy: Application → GitHub provider (`Wladefant/elumiai-website`, branch `main`), build type **Dockerfile**, container port **80**.
 
+### Cloudflare Pages (target static hosting)
+
+- Output directory: `.` (repo root)
+- Build command: none (pure static HTML/CSS/JS)
+- Headers: `_headers`
+- Redirects: `_redirects`
+
+Direct deploy command:
+```bash
+npx wrangler pages deploy . --project-name elumiai-website
+```
+
 ## Structure
 
 ```
