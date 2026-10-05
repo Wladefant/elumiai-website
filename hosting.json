@@ -21,6 +21,6 @@
   "supabase": {
     "in_use": false
   },
-  "next_migration_step": "Deploy on Cloudflare Pages once account token is available.",
+  "next_migration_step": "Deploy on Cloudflare Pages once the Cloudflare account token is available.",
   "exempt": null
 }
