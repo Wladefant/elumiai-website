@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "project": "elumiai-website",
+  "stage": "live",
+  "dns": {
+    "provider": "cloudflare",
+    "zones": [
+      "wladefant.de"
+    ]
+  },
+  "components": [
+    {
+      "name": "elumiai-website",
+      "kind": "web",
+      "host": "dokploy-app",
+      "url": "https://elumiai.wladefant.de",
+      "dokploy_app_id": "7B9113b3DIGTAOxqOyw4C",
+      "monthly_cost_usd": 0.0
+    }
+  ],
+  "supabase": {
+    "in_use": false
+  },
+  "next_migration_step": "Deploy on Cloudflare Pages once account token is available.",
+  "exempt": null
+}
